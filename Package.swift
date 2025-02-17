@@ -11,7 +11,10 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "AMathExpression",
-            targets: ["AMathExpression"])
+            targets: ["AMathExpression"]),
+        .library(
+            name: "IntegerUtilities",
+            targets: ["IntegerUtilities"])
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-numerics", from: "1.0.2")
@@ -24,6 +27,9 @@ let package = Package(
             dependencies: [
                 .product(name: "Numerics", package: "swift-numerics")
             ]
+        ),
+        .target(
+            name: "IntegerUtilities"
         ),
         .testTarget(
             name: "AMathExpressionTests",
