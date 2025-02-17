@@ -15,7 +15,7 @@ Add AMathExpression to your Swift project. You can use Swift Package Manager to 
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/RapboyGao/AMathExpression.git", from: "1.0.0")
+    .package(url: "https://github.com/RapboyGao/AMathExpression.git", from: "1.0.1")
 ]
 ```
 
