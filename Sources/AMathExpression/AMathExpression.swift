@@ -12,7 +12,7 @@ public enum AMathExpression<ANumber: Codable & Sendable & Hashable>: Codable, Se
     indirect case function(String, [AMathExpression])  // Function with a name and arguments (e.g., sin(x), log(x))
     indirect case parenthesis(AMathExpression)  // Parentheses for grouping (e.g., (a + b))
 
-    init?(_ string: String) {
+    public init?(_ string: String) {
         let parser = AMathExpressionParser<ANumber>()
         guard let result = parser.parse(string) ?? parser.parse(string + ")") else {
             return nil
@@ -68,6 +68,4 @@ public enum AMathExpression<ANumber: Codable & Sendable & Hashable>: Codable, Se
             return description
         }
     }
-
-
 }
