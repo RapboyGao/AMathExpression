@@ -2,7 +2,7 @@ import Foundation
 import Numerics
 
 extension AMathExpression where ANumber: BinaryFloatingPoint & Real {
-    public func evaluate(_ functions: [String: @Sendable ([ANumber?]) -> ANumber?] = Self.createFunctions()) -> ANumber? {
+    public func evaluate(_ functions: [String: @Sendable ([ANumber?]) -> ANumber?] = Self.createDefaultFunctions()) -> ANumber? {
         switch self {
         case .number(let value):
             return value
@@ -41,7 +41,7 @@ extension AMathExpression where ANumber: BinaryFloatingPoint & Real {
         return nil
     }
 
-    public static func createFunctions() -> [String: @Sendable ([ANumber?]) -> ANumber?] {
+    public static func createDefaultFunctions() -> [String: @Sendable ([ANumber?]) -> ANumber?] {
         // 常量用于度数和弧度之间的转换
         let degreesToRadians: ANumber = 0.01745329251994329576924  // π / 180
         let radiansToDegrees: ANumber = 57.29577951308232087680  // 180 / π
@@ -147,6 +147,8 @@ extension AMathExpression where ANumber: BinaryFloatingPoint & Real {
             },
         ]
     }
+
+
 }
 
 // extension Decimal {
