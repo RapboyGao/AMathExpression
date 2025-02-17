@@ -56,10 +56,18 @@ extension AMathExpression where ANumber: BinaryFloatingPoint & Real {
                 guard let value = values.first, let number = value else { return nil }
                 return ANumber.sqrt(number)
             },
+            "√": { values in
+                guard let value = values.first, let number = value else { return nil }
+                return ANumber.sqrt(number)
+            },
             "cbrt": { values in
                 guard let firstValue = values.first, let value = firstValue
                 else { return nil }
                 return ANumber.pow(value, 0.333333333333333333333333333333333)
+            },
+            "∛": { values in
+                guard let value = values.first, let number = value else { return nil }
+                return ANumber.sqrt(number)
             },
             "log": { values in
                 guard let value = values.first, let number = value else { return nil }
