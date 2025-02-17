@@ -1,17 +1,17 @@
 # AMathExpression
 
-AMathExpression 是一个用于解析和计算数学表达式的 Swift 库。它支持基本的算术运算、函数调用以及括号分组。
+AMathExpression is a Swift library for parsing and evaluating mathematical expressions. It supports basic arithmetic operations, function calls, and parentheses grouping.
 
-## 功能
+## Features
 
-- 支持基本的算术运算：加法、减法、乘法、除法、取模和幂运算。
-- 支持函数调用：如 `sqrt`、`log`、`sin` 等。
-- 支持括号分组，支持中文和英文括号。
-- 支持自定义函数。
+- Supports basic arithmetic operations: addition, subtraction, multiplication, division, modulus, and exponentiation.
+- Supports function calls: such as `sqrt`, `log`, `sin`, etc.
+- Supports parentheses grouping, including both Chinese and English parentheses.
+- Supports custom functions.
 
-## 安装
+## Installation
 
-将 AMathExpression 添加到您的 Swift 项目中。您可以使用 Swift Package Manager 来添加依赖。
+Add AMathExpression to your Swift project. You can use Swift Package Manager to add the dependency.
 
 ```swift
 dependencies: [
@@ -19,22 +19,22 @@ dependencies: [
 ]
 ```
 
-## 使用方法
+## Usage
 
-### 解析和计算表达式
+### Parsing and Evaluating Expressions
 
 ```swift
 import AMathExpression
 
 let expression = AMathExpression<Double>("3 + 5 * (2 - 8)")
 if let result = expression?.evaluate() {
-    print("结果: \(result)")  // 输出: 结果: -25.0
+    print("Result: \(result)")  // Output: Result: -25.0
 }
 ```
 
-### 自定义函数
+### Custom Functions
 
-您可以传递自定义函数字典来扩展库的功能。
+You can pass a dictionary of custom functions to extend the library's functionality.
 
 ```swift
 let customFunctions: [String: @Sendable ([Double?]) -> Double?] = [
@@ -46,59 +46,59 @@ let customFunctions: [String: @Sendable ([Double?]) -> Double?] = [
 
 let expression = AMathExpression<Double>("double(4)")
 if let result = expression?.evaluate(customFunctions) {
-    print("结果: \(result)")  // 输出: 结果: 8.0
+    print("Result: \(result)")  // Output: Result: 8.0
 }
 ```
 
-### 更多示例
+### More Examples
 
-#### 使用内置函数
+#### Using Built-in Functions
 
 ```swift
 let expression1 = AMathExpression<Double>("sqrt(16)")
 if let result1 = expression1?.evaluate() {
-    print("结果: \(result1)")  // 输出: 结果: 4.0
+    print("Result: \(result1)")  // Output: Result: 4.0
 }
 
 let expression2 = AMathExpression<Double>("log(100)")
 if let result2 = expression2?.evaluate() {
-    print("结果: \(result2)")  // 输出: 结果: 4.605170185988092
+    print("Result: \(result2)")  // Output: Result: 4.605170185988092
 }
 
 let expression3 = AMathExpression<Double>("sin(30)")
 if let result3 = expression3?.evaluate() {
-    print("结果: \(result3)")  // 输出: 结果: 0.5
+    print("Result: \(result3)")  // Output: Result: 0.5
 }
 ```
 
-#### 使用括号分组
+#### Using Parentheses Grouping
 
 ```swift
 let expression = AMathExpression<Double>("(3 + 5) * 2")
 if let result = expression?.evaluate() {
-    print("结果: \(result)")  // 输出: 结果: 16.0
+    print("Result: \(result)")  // Output: Result: 16.0
 }
 ```
 
-#### 处理中文括号
+#### Handling Chinese Parentheses
 
 ```swift
 let expression = AMathExpression<Double>("3 + 5 × （2 - 8）")
 if let result = expression?.evaluate() {
-    print("结果: \(result)")  // 输出: 结果: -27.0
+    print("Result: \(result)")  // Output: Result: -27.0
 }
 ```
 
-#### 处理科学计数法
+#### Handling Scientific Notation
 
 ```swift
 let expression = AMathExpression<Double>("1.2e3 + 4.5e-2")
 if let result = expression?.evaluate() {
-    print("结果: \(result)")  // 输出: 结果: 1200.045
+    print("Result: \(result)")  // Output: Result: 1200.045
 }
 ```
 
-#### 处理自定义函数
+#### Handling Custom Functions
 
 ```swift
 let customFunctions: [String: @Sendable ([Double?]) -> Double?] = [
@@ -110,11 +110,11 @@ let customFunctions: [String: @Sendable ([Double?]) -> Double?] = [
 
 let expression = AMathExpression<Double>("triple(3)")
 if let result = expression?.evaluate(customFunctions) {
-    print("结果: \(result)")  // 输出: 结果: 9.0
+    print("Result: \(result)")  // Output: Result: 9.0
 }
 ```
 
-## 支持的默认函数
+## Supported Default Functions
 
 - `sqrt`
 - `log`
@@ -140,8 +140,8 @@ if let result = expression?.evaluate(customFunctions) {
 - `atan2`
 - `hypot`
 
-这些只是默认的函数，用户可以根据需要自定义更多的函数。
+These are just the default functions, and users can customize more functions as needed.
 
-## 许可证
+## License
 
-此项目使用 MIT 许可证。有关更多信息，请参阅 LICENSE 文件。
+This project is licensed under the MIT License. For more information, please see the LICENSE file.
