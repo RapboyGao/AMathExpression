@@ -40,6 +40,11 @@ extension AMathExpression where ANumber: BinaryFloatingPoint & Real {
         }
         return nil
     }
+    
+    
+    public static func defaultFunctionNames() -> [String] {
+        createDefaultFunctions().keys.sorted()
+    }
 
     public static func createDefaultFunctions() -> [String: @Sendable ([ANumber?]) -> ANumber?] {
         // 常量用于度数和弧度之间的转换
