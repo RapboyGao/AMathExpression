@@ -8,13 +8,10 @@ let package = Package(
     defaultLocalization: "en",
 
     products: [
-        .library(
-            name: "IntegerUtilities",
-            targets: ["IntegerUtilities"]),
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "AMathExpression",
-            targets: ["AMathExpression"]),
+            targets: ["AMathExpression"])
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-numerics", from: "1.0.2")
@@ -22,14 +19,11 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "IntegerUtilities"
-        ),
+
         .target(
             name: "AMathExpression",
             dependencies: [
-                .product(name: "Numerics", package: "swift-numerics"),
-                "IntegerUtilities"
+                .product(name: "Numerics", package: "swift-numerics")
             ]
         ),
         .testTarget(
